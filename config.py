@@ -24,7 +24,6 @@ class DevConfig(Config):
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://wecode:sarah/pitch'
 
     DEBUG = True
-
 config_options = {
 'development':DevConfig,
 'production':ProdConfig,
