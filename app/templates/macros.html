@@ -1,0 +1,48 @@
+{% macro displayCategoryList(category_list) %}
+{% for category in category_list %}
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200&display=swap" rel="stylesheet">
+<div>
+    <a href="{{url_for('main.category',id = category.id)}}">
+        <p>{{category.cat_name|upper}}</p>
+    </a>
+</div>
+{% endfor %}
+{% endmacro %}
+{% macro display(piches) %}
+<div class="container-fluid">
+    <div class="row">
+        {% if piches %}
+        {% for category in piches %}
+        <div class="col-md-4">
+            <div class="thumbnail" id="carded" style="background-color: transparent;color:white">
+                <div class="card-body text-center" style="margin-top: 30px;font-family: 'Noto Serif JP', serif;">
+                    <p>
+                        {{category.title}}</p>
+                    <p class="text-center">Category: {{category.category}}</p> <br>
+                    <p class="text-center"> {{category.pitch}}</p> <br>
+                    <footer class="blockquote-footer text-center" >
+                        <small><i></i>Posted by:
+                            {{category.user.username}}</i></small></footer><br> <br>
+                    <div>
+                        <span class="foot">comment{{category.comment.count()}}</span>
+                        &nbsp;&nbsp;&nbsp;
+                        <span class="foot"><a href="{{url_for('main.like',id=category.id)}}" style="color:yellow;">upvote</a>{{category.upvote.count()}}</span> &nbsp;&nbsp;&nbsp;
+                        <span class="foot" ><a href="{{url_for('main.dislike', id = category.id)}}" style="color:yellow;">downvote</a>{{category.downvote.count()}}</span> &nbsp;&nbsp;&nbsp;
+                        <a href="{{url_for('main.comment',pitch_id=category.id)}}" class="btn btn-warning btn-sm"> comment</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <div class="card w-90 mb-3">
+            <div class="card-body">
+                <p class="card-title text-center">Category has 0 posts</p>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    <br>
+</div>
+{% endmacro %}
