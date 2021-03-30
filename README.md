@@ -1,5 +1,5 @@
 # pitch-app
-Application that allows users to use that one minute wisely
+This an app that enables to see the different pitches created by different people. You can create your own pitch and like or dislike a pith created by others. Moreover, you can make a comment.
 
 ## Author
 Dufitumukiza Sarah
