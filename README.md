@@ -4,7 +4,6 @@ Application that allows users to use that one minute wisely
 ## Author
 Dufitumukiza Sarah
 
-
 ## Technologies Used
  * Python
  * Flask
